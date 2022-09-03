@@ -36,7 +36,7 @@ def gen_homekit_setup_uri(category, password, setup_id, version=0, reserved=0, f
         encodedPayload += BASE36[payload % 36]
         payload //= 36
 
-    return 'X-HM://%s%s' % (''.join(reversed(encodedPayload)), setup_id)
+    return f"X-HM://{''.join(reversed(encodedPayload))}{setup_id}"
 
 
 def gen_homekit_qrcode(setup_uri, password, transparent=False):
